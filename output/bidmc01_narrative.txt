@@ -1,0 +1,53 @@
+BREATHING PATTERN NARRATIVE REPORT
+Patient: BIDMC01
+Recording duration: 8.0 minutes
+Signal source: PPG-derived respiratory signal
+Method: Bandpass filtration (0.1–0.5 Hz) + peak detection
+============================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Over the 8-minute recording, the patient completed 167 detected breaths at a mean rate of 20.9 breaths per minute. This rate is mildly elevated. Breathing rhythm was consistent rhythm, with a coefficient of variation of 15.0% across inter-breath intervals.
+
+Respiratory rate was mildly elevated above the normal adult range (12–20 breaths/min). This may reflect physiological stress, pain, anxiety, or underlying respiratory demand. Clinical correlation is advised.
+
+SEGMENT-BY-SEGMENT ANALYSIS
+----------------------------------------
+
+Segment 1 [00:00 – 02:00]
+Breathing rate was 21.0 breaths/min (mildly elevated).
+Rhythm showed moderate variability (CV 26.1%), which may reflect normal physiological variation or mild respiratory irregularity.
+42 breaths detected in this 2-minute window.
+
+Segment 2 [02:00 – 04:00]
+Breathing rate remained stable (21.0 bpm, mildly elevated).
+Rhythm was consistent (CV 9.1%), indicating stable respiratory control.
+42 breaths detected in this 2-minute window.
+
+Segment 3 [04:00 – 06:00]
+Breathing rate remained stable (20.5 bpm, mildly elevated).
+Rhythm was consistent (CV 7.8%), indicating stable respiratory control.
+41 breaths detected in this 2-minute window.
+
+Segment 4 [06:00 – 08:00]
+Breathing rate remained stable (21.0 bpm, mildly elevated).
+Rhythm was consistent (CV 8.4%), indicating stable respiratory control.
+42 breaths detected in this 2-minute window.
+
+EPISODE ALERTS
+----------------------------------------
+No sustained episodes of tachypnea (>25 bpm) or bradypnea (<10 bpm) were detected during this recording. Breathing rate remained within or near normal limits throughout.
+
+BREATHING INTERVAL ANALYSIS
+----------------------------------------
+Mean inter-breath interval: 2.87 seconds (± 0.43s SD).
+Range: 1.87s (shortest breath) to 5.59s (longest breath).
+The 3.7s spread between shortest and longest breath intervals indicates notable variability in respiratory effort across the recording.
+
+METHODOLOGY AND LIMITATIONS
+----------------------------------------
+Breathing signal was derived from photoplethysmography (PPG) using respiratory modulation of blood volume — a slow oscillation (0.1–0.5 Hz) superimposed on the cardiac PPG waveform. This was isolated using a zero-phase Butterworth bandpass filter. Individual breaths were detected via prominence-filtered peak detection with a minimum inter-breath interval constraint.
+
+Validation: PPG-derived breathing signal achieved a Pearson correlation of 0.452 with the reference chest sensor signal.
+
+Limitations: PPG-derived respiratory rate may be affected by patient movement, poor perfusion, or irregular cardiac rhythm. This report is generated for research purposes only and does not constitute clinical diagnosis.
