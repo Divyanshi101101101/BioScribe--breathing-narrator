@@ -35,22 +35,34 @@ Just signal processing and physiological understanding.
 ## Pipeline
 
 Raw PPG signal (125 Hz)
+
 ↓
+
 Butterworth bandpass filter (0.1–0.5 Hz)
+
 ↓
+
 Breathing signal extracted
+
 ↓
+
 Peak detection → individual breath timestamps
+
 ↓
+
 Feature computation:
 
 Breathing rate (breaths/min)
 Inter-breath interval (mean, std, CV)
 Segment-by-segment analysis
 Episode detection (tachypnea / bradypnea)
+
 ↓
+
 Rule-based narrative engine
+
 ↓
+
 Plain-English clinical report + signal plots
 
 ---
