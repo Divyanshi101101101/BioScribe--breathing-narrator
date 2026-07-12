@@ -101,7 +101,7 @@ breathing-narrator/
 ## How to Run
 
 ```bash
-git clone https://github.com/Divyanshi101101101/breathing-narrator
+git clone https://github.com/Divyanshi101101101/BioScribe--breathing-narrator
 cd breathing-narrator
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
