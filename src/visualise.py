@@ -112,7 +112,7 @@ def plot_full_report(patient_id):
     ax2.scatter(peaks_60 / fs, b_norm[peaks_60],
                 color='white', s=20, zorder=5, alpha=0.8)
     ax2.set_xlim(0, 60)
-    ax2.set_ylabel('Normalised', color='#9B9A97', fontsize=8)
+    ax2.set_ylabel('Normalised', color="#9D988A", fontsize=8)
     ax2.set_title(
         f'Breathing signal extracted via bandpass filter '
         f'— {len(peaks_60)} breaths in 60s',
