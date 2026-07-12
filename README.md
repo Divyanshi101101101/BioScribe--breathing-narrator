@@ -73,6 +73,26 @@ Plain-English clinical report + signal plots
 > reflects genuine physiological difference in signal character rather
 > than misalignment or detection error. See `docs/methods.md` for detail.
 
+## Validation Across Multiple Patients
+
+To assess generalizability beyond a single recording, the pipeline was run
+on 5 patients from the BIDMC dataset without any per-patient tuning.
+
+| Patient | Correlation (lag-corrected) | Best lag |
+|---------|------------------------------|----------|
+| BIDMC01 | 0.496 | -0.07s |
+| BIDMC02 | 0.719 | -0.32s |
+| BIDMC03 | 0.428 | 0.31s |
+| BIDMC04 | 0.638 | 0.34s |
+| BIDMC05 | 0.737 | 0.14s |
+| **Mean ± SD** | **0.60 ± 0.12** | — |
+
+> Correlation varies meaningfully across patients (0.43–0.74), which is
+> expected: PPG-derived respiration quality depends on factors like probe
+> placement, perfusion, and motion — the same limitation applies to any
+> PPG-based respiratory monitoring approach, not just this pipeline. No
+> per-patient parameter tuning was applied; all patients used identical
+> filter and detection settings.
 ---
 
 ## Tech Stack
