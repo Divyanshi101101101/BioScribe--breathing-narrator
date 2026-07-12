@@ -144,19 +144,41 @@ def compute_breathing_regularity(breath_peaks, fs):
 def validate_against_reference(extracted, reference, fs, patient_id):
     """
     compares our extracted breathing signal against the reference sensor.
-    computes correlation — how well do we match ground truth?
+    filters reference the same way as extracted for a fair comparison,
+    and corrects for physiological lag between PPG-derived and
+    direct respiration signals before computing correlation.
     """
-    # both signals need same length
-    min_len     = min(len(extracted), len(reference))
-    ext         = extracted[:min_len]
-    ref         = reference[:min_len]
+    min_len = min(len(extracted), len(reference))
+    ext     = extracted[:min_len]
+    ref_raw = reference[:min_len]
 
-    # normalise both to 0-1 for fair comparison
-    ext_norm    = (ext - ext.min()) / (ext.max() - ext.min())
-    ref_norm    = (ref - ref.min()) / (ref.max() - ref.min())
+    # filter reference the same way as extracted — fair comparison
+    ref = bandpass_filter(ref_raw, RESP_LOW_HZ, RESP_HIGH_HZ, fs)
 
-    correlation = np.corrcoef(ext_norm, ref_norm)[0, 1]
-    return correlation
+    ext_norm = (ext - ext.min()) / (ext.max() - ext.min())
+    ref_norm = (ref - ref.min()) / (ref.max() - ref.min())
+
+    # find best-aligning lag (max ±2 seconds) to correct for
+    # known PPG-vs-reference phase delay
+    max_lag = int(2 * fs)
+    best_corr = -1
+    best_lag = 0
+    for lag in range(-max_lag, max_lag + 1):
+        if lag < 0:
+            a, b = ext_norm[-lag:], ref_norm[:len(ref_norm)+lag]
+        elif lag > 0:
+            a, b = ext_norm[:len(ext_norm)-lag], ref_norm[lag:]
+        else:
+            a, b = ext_norm, ref_norm
+        if len(a) < 10:
+            continue
+        c = np.corrcoef(a, b)[0, 1]
+        if c > best_corr:
+            best_corr = c
+            best_lag = lag
+
+    print(f"Best lag: {best_lag/fs:.2f}s, correlation: {best_corr:.3f}")
+    return best_corr
 
 
 def plot_extraction(ppg, breathing_extracted, breathing_reference,
