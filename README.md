@@ -11,9 +11,12 @@
 
 ## Demo
 
-Signal plots and clinical narrative displayed side by side on one screen.
-Left: raw PPG, extracted breathing signal, breathing rate over time.
-Right: auto-generated clinical report with segment analysis and episode alerts.
+## Demo
+
+![Full breathing report](output/bidmc01_full_report.png)
+
+*Left: raw PPG, extracted breathing signal, and breathing rate over time.
+Right: auto-generated clinical report with segment analysis and episode alerts.*
 
 ---
 
